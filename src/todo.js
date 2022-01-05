@@ -16,6 +16,12 @@ class Project {
     this.description = description;
     this.toDos = toDos //array of to-do objects
   }
+
+  addToDo = (e) => {
+    //fires from an event that submits a form, so have to get params from event
+    console.log(e);
+    //this.toDos.push( new ToDo (title, description, dueDate, priority) )
+  }
 };
 
 const projects = (() => {
