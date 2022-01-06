@@ -18,11 +18,14 @@ const displayController = (() => {
         <label for="priority">Priority: </label>
         <input type="text" id="priority" name="priority"<br>`
     //form.id = "form";
-    //form.method = "post";
-    //form.action = "";
+    form.method = "post";
+    form.action = "";
     let btn = document.createElement("button")
-    //btn.type = "submit";
-    btn.onclick = (e) => { project.addToDo(e) };
+    btn.type = "submit";
+    form.addEventListener("submit", (e) => { 
+      e.preventDefault();
+      project.addToDo(e); 
+    });
     btn.innerHTML = "Add task!"
     form.appendChild(btn);
     return form;
