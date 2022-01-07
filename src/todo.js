@@ -27,7 +27,6 @@ class Project {
       e.target.dueDate.value, 
       e.target.priority.value) 
     )
-    displayController.renderProjects(projects.getProjects()); //refresh view <----is this very clumsy as it uses two other modules?
   }
 };
 
@@ -38,6 +37,14 @@ const projects = (() => {
   
   const update = () => {
     localStorage.setItem('odinToDo', JSON.stringify(myProjects));
+  }
+
+  const addProject = (e) => {
+    //fires from an event that submits a form, so have to get params from event
+    myProjects.push( new Project ( 
+      e.target.title.value, 
+      e.target.description.value ) 
+    )
   }
 
   const load = () => {
@@ -56,7 +63,7 @@ const projects = (() => {
 
   load();
 
-  return { getProjects, update, load }
+  return { getProjects, update, load, addProject }
 
 })()
 
